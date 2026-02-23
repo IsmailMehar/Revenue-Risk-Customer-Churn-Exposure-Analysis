@@ -72,6 +72,55 @@ These segments form the foundation of the risk and exposure analysis.
 -- Total Revenue
 Total Revenue =
 SUM ( churn_bi_table[rev_sum] )
+
+-- Total Users
+Total Users =
+DISTINCTCOUNT ( churn_bi_table[visitorid] )
+
+-- Churned Users (target_class = 0)
+Churned Users = 
+CALCULATE(
+    DISTINCTCOUNT(churn_bi_table[visitorid]),
+    churn_bi_table[target_class] = 0
+)
+
+-- Revenue Already Lost (Churned)
+Revenue - Churned = 
+CALCULATE(
+    [Total Revenue],
+    churn_bi_table[target_class] = 0
+)
+
+-- Churn Rate %
+Churn Rate % =
+DIVIDE ( [Churned Users], [Total Users] )
+
+-- Revenue at Risk (30+ days)
+Revenue at Risk (30+ days) =
+CALCULATE (
+    [Total Revenue],
+    churn_bi_table[gap_bucket] IN { "30-45", "45+" }
+)
+
+-- Risk Weighted Revenue
+Risk Weighted Revenue =
+[Total Revenue] * [Churn Rate %]
+
+-- Risk Contribution %
+Risk Contribution % =
+DIVIDE (
+    [Risk Weighted Revenue],
+    CALCULATE ( [Risk Weighted Revenue], ALL ( churn_bi_table[gap_bucket] ) )
+)
+
+-- Risk Multiplier (45+ vs 0-15)
+Risk Multiplier =
+DIVIDE (
+    CALCULATE ( [Churn Rate %], churn_bi_table[gap_bucket] = "45+" ),
+    CALCULATE ( [Churn Rate %], churn_bi_table[gap_bucket] = "0-15" )
+)
+
+
 ```
 
 These measures shift the focus from churn percentage to **expected revenue exposure**.
