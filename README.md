@@ -69,28 +69,44 @@ These segments form the foundation of the risk and exposure analysis.
 ## Key Measures (DAX)
 
 ```DAX
-Total Revenue = SUM(Fact[Revenue])
+Total Users =
+DISTINCTCOUNT(churn_bi_table[visitorid])
 
-Churn Rate % =
-DIVIDE(
-    [Churned Customers],
-    [Total Customers]
+Churned Users =
+CALCULATE(
+    DISTINCTCOUNT(churn_bi_table[visitorid]),
+    churn_bi_table[target_class] = 0
 )
 
-Revenue At Risk =
+Active Users =
+CALCULATE(
+    DISTINCTCOUNT(churn_bi_table[visitorid]),
+    churn_bi_table[target_class] = 1
+)
+
+Total Revenue =
+SUM(churn_bi_table[rev_sum])
+
+Revenue - Churned =
 CALCULATE(
     [Total Revenue],
-    Fact[Recency Segment] IN {"30–45", "45+"}
+    churn_bi_table[target_class] = 0
 )
 
-Risk Weighted Revenue =
-[Total Revenue] * [Churn Rate %]
+Revenue - Active =
+CALCULATE(
+    [Total Revenue],
+    churn_bi_table[target_class] = 1
+)
 
-Risk Contribution % =
+Revenue Share % =
 DIVIDE(
-    [Risk Weighted Revenue],
-    CALCULATE([Risk Weighted Revenue], ALL(Fact[Recency Segment]))
+    [Total Revenue],
+    CALCULATE([Total Revenue], ALL(churn_bi_table[gap_bucket]))
 )
+
+Churn Rate % =
+DIVIDE([Churned Users], [Total Users])
 ```
 
 These measures shift the focus from churn percentage to **expected revenue exposure**.
