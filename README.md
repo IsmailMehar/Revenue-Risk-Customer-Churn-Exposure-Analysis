@@ -1,7 +1,7 @@
 # Customer Churn Risk & Revenue Exposure Analysis
 
 **Domain:** Customer Analytics / Commercial Performance  
-**Tools:** Power BI, DAX, Power Query  
+**Tools:** Python, Power BI, DAX, Power Query  
 **Duration:** 1 Week  
 **Live Dashboard:** [Power BI Service Link]  
 **Dataset:** Synthetic / anonymised transactional data  
