@@ -69,44 +69,9 @@ These segments form the foundation of the risk and exposure analysis.
 ## Key Measures (DAX)
 
 ```DAX
-Total Users =
-DISTINCTCOUNT(churn_bi_table[visitorid])
-
-Churned Users =
-CALCULATE(
-    DISTINCTCOUNT(churn_bi_table[visitorid]),
-    churn_bi_table[target_class] = 0
-)
-
-Active Users =
-CALCULATE(
-    DISTINCTCOUNT(churn_bi_table[visitorid]),
-    churn_bi_table[target_class] = 1
-)
-
+-- Total Revenue
 Total Revenue =
-SUM(churn_bi_table[rev_sum])
-
-Revenue - Churned =
-CALCULATE(
-    [Total Revenue],
-    churn_bi_table[target_class] = 0
-)
-
-Revenue - Active =
-CALCULATE(
-    [Total Revenue],
-    churn_bi_table[target_class] = 1
-)
-
-Revenue Share % =
-DIVIDE(
-    [Total Revenue],
-    CALCULATE([Total Revenue], ALL(churn_bi_table[gap_bucket]))
-)
-
-Churn Rate % =
-DIVIDE([Churned Users], [Total Users])
+SUM ( churn_bi_table[rev_sum] )
 ```
 
 These measures shift the focus from churn percentage to **expected revenue exposure**.
