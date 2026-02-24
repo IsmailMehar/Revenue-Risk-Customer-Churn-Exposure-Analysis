@@ -176,7 +176,11 @@ The project shifts churn monitoring from reactive reporting to proactive revenue
 
 ## Dashboard Preview
 
-*(Insert 2–3 screenshots here)*
+<img width="2520" height="1413" alt="image" src="https://github.com/user-attachments/assets/46541a55-22ef-4652-a933-fb33ff391c60" />
+<img width="2520" height="1410" alt="image" src="https://github.com/user-attachments/assets/329f29ae-5b14-4cc4-bbb8-b3438157aa68" />
+<img width="2523" height="1404" alt="image" src="https://github.com/user-attachments/assets/44fed94f-fbf2-41cc-84f5-8dadec1a552b" />
+<img width="2520" height="1407" alt="image" src="https://github.com/user-attachments/assets/7703291f-7d20-4549-bf91-8a72cf530c9c" />
+
 
 - Executive Overview
 - Behavioural Drivers
