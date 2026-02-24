@@ -160,11 +160,11 @@ The project shifts churn monitoring from reactive reporting to proactive revenue
 /customer-churn-revenue-exposure/
 │
 ├── Reports/
-│   ├── Churn_Risk_Dashboard.pbix
+│   ├── Churn_analysis.pbix
 │   └── Dashboard_Screenshots/
 │
 ├── Data/
-│   └── Sample_Anonymised_Data.csv
+│   └── ecom-user-churn-data.csv
 │
 └── README.md
 ```
