@@ -166,9 +166,6 @@ The project shifts churn monitoring from reactive reporting to proactive revenue
 ├── Data/
 │   └── Sample_Anonymised_Data.csv
 │
-├── Writeups/
-│   └── Project_Case_Study.pdf
-│
 └── README.md
 ```
 
