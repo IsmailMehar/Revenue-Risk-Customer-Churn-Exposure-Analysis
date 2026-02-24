@@ -3,7 +3,6 @@
 **Domain:** Customer Analytics / Commercial Performance  
 **Tools:** Python, Power BI, DAX, Power Query  
 **Duration:** 1 Week  
-**Live Dashboard:** [Power BI Service Link]  
 **Dataset:** Synthetic / anonymised transactional data  
 
 ---
@@ -209,5 +208,5 @@ Revenue exposure estimates assume historical churn probabilities remain stable.
 
 For questions or discussion regarding this project:
 
-[LinkedIn Profile Link]  
-[Email Address]
+www.linkedin.com/in/ismailarshad  
+m.ismailasrhadd@gmail.com
