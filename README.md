@@ -163,6 +163,9 @@ The project shifts churn monitoring from reactive reporting to proactive revenue
 │   ├── Churn_analysis.pbix
 │   └── Dashboard_Screenshots/
 │
+├── Notebooks/
+│   └── churn_analysis.ipynb
+│
 ├── Data/
 │   └── ecom-user-churn-data.csv
 │
